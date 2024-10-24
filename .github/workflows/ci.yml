@@ -19,18 +19,7 @@ jobs:
       run: npm cache clean --force
 
     - name: Install dependencies
-      run: npm install
-
-    - name: Generate package-lock.json if not exists
-      run: |
-        if [ ! -f package-lock.json ]; then
-          npm install
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
-          git add package-lock.json
-          git commit -m "Add package-lock.json"
-          git push
-        fi
+      run: npm ci
 
     - name: Build the project
       run: npm run build
